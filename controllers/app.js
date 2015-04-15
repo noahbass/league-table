@@ -103,7 +103,7 @@ exports.show = function(req, res) {
     var id = req.params.table_id;
 
     tablesClient.findById(id, function(error, result) {
-        if(error) {
+        if(result === undefined) {
             res.redirect('/');
         }
         else {
