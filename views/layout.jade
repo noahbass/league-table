@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        title #{title} | League Table Generator
+        link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css")
+        link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.8/ladda-themeless.min.css")
+
+        include partials/css
+    body
+        .container
+            if errors
+                .row
+                    .col-sm-12.columns
+                        .alert.alert-warning(role="alert")
+                            p
+                                strong Oh snap!
+                            ul
+                                each error in errors
+                                    li= error
+
+            .row
+                .col-md-4.col-sm-12.columns
+                    block content-left
+
+                .col-md-8.col-sm-12.columns
+                    br
+                    block content-right
+
+        script(src="//cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.8/spin.min.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.8/ladda.min.js")
+        script(src="/javascripts/buttons.js")
