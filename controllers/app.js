@@ -111,7 +111,7 @@ exports.show = function(req, res) {
 
             res.render('table', {
                 title: result.data[0].title,
-                data: result.data[0],
+                data: result,
                 created_at: result.created_at
             });
         }
