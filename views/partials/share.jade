@@ -2,8 +2,8 @@ ul.list-inline
     li
         strong Share This #{url}
     li
-        a.btn.btn-sm.btn-primary.btn-twitter(href="https://twitter.com/share?url=#{url}&text=#{title}", target="_blank") Twitter
+        a.btn.btn-sm.btn-primary.btn-twitter(href="https://twitter.com/share?url=/#{ data.id }&text=Table: #{title}", target="_blank") Twitter
     li
-        a.btn.btn-sm.btn-primary.btn-facebook(href="https://www.facebook.com/sharer.php?u=#{url}", target="_blank") Facebook
+        a.btn.btn-sm.btn-primary.btn-facebook(href="https://www.facebook.com/sharer.php?u=/#{ data.id }", target="_blank") Facebook
     li
-        a.btn.btn-sm.btn-primary.btn-reddit(href="https://www.reddit.com/submit?url=#{url}&title=#{title}", target="_blank") Reddit
+        a.btn.btn-sm.btn-primary.btn-reddit(href="https://www.reddit.com/submit?url=/#{ data.id }&title=Table: #{title}", target="_blank") Reddit
