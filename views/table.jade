@@ -1,8 +1,8 @@
 extends layout
 
 block content-left
-    h1 Table: #{title}
-    p.lead #{moment(created_at).format('dddd, MMMM Do YYYY')}
+    h1 Table: #{ data.title }
+    p.lead #{ moment(created_at).format('dddd, MMMM Do YYYY') }
 
     include partials/share
 
@@ -25,7 +25,7 @@ block content-right
                     th PTS
             tbody
                 - var i = 1
-                each item in table
+                each item in data.table
                     if item.zone == 'promotion'
                         tr(class="success")
                             th= i++
@@ -62,3 +62,10 @@ block content-right
                             td= item.against
                             td= item.diff
                             td= item.points
+
+        div
+            p
+                strong Input
+            ul.list-unstyled
+                each item in data.input
+                    li= item
