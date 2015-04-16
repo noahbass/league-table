@@ -10,7 +10,7 @@ var search    = require('../lib/search.js'),
 var orm    = require('thin-orm'),
     moment = require('moment');
 orm.table('tables')
-   .columns('id', 'title', 'data', 'created_at');
+   .columns('id', 'data', 'created_at');
 
 var sqlite3 = require('sqlite3').verbose(),
     db = new sqlite3.Database('./db.db'),
@@ -21,7 +21,7 @@ var sqlite3 = require('sqlite3').verbose(),
 exports.index = function(req, res) {
     tablesClient.findMany({ sort: { id: 'DESC' } }, function(error, result) {
         res.render('index', {
-            title: 'New Table',
+            title: 'Create a New Table',
             tables: result.rows
         });
     });
@@ -35,9 +35,9 @@ exports.store = function(req, res, next) {
     var regex = /^(.*?) (\d+) - (\d+) (.*?)$/;
 
     var title = req.body.title,
-        data  = [{ title: title }, []],
+        data  = [{ title: title, input: results, table: [] }],
         clubs = [],
-        table = data[1];
+        table = data[0].table;
 
     // do matches
     results.forEach(function(result) {
@@ -80,8 +80,7 @@ exports.store = function(req, res, next) {
     });
 
     tablesClient.create({ data: {
-        title: data[0].title,
-        data: JSON.stringify(table),
+        data: JSON.stringify(data),
         created_at: moment().format()
     }}, function(error, result) {
         if(error) {
@@ -111,8 +110,8 @@ exports.show = function(req, res) {
             result.data = JSON.parse(result.data);
 
             res.render('table', {
-                title: result.title,
-                table: result.data,
+                title: result.data[0].title,
+                data: result.data[0],
                 created_at: result.created_at
             });
         }
