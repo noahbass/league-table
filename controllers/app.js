@@ -20,9 +20,15 @@ var sqlite3 = require('sqlite3').verbose(),
 
 exports.index = function(req, res) {
     tablesClient.findMany({ sort: { id: 'DESC' } }, function(error, result) {
+        result = result.rows;
+
+        result.forEach(function(entry) {
+            entry.data = JSON.parse(entry.data);
+        });
+
         res.render('index', {
             title: 'Create a New Table',
-            tables: result.rows
+            data: result
         });
     });
 };
