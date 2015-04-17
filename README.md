@@ -4,6 +4,8 @@ A Node.js league table generator based on [bakert/League-Table-Generator](https:
 
 ### Generator
 
+![Table View](/screenshots/view-table.jpg)
+
 #### Tie Breakers
 
 The generator uses english premier league rules for two teams tied for position in points:
