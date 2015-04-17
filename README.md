@@ -18,3 +18,4 @@ If the two teams are still tied, then they will be listed in the table by alphab
 
 - add updating table by unique editing url that is generated with the initial table
 - add more better error messages for generator
+- use postgres on production
