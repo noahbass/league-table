@@ -3,6 +3,11 @@ extends layout
 block content-left
     h1 Table: #{ data.data[0].title }
     p.lead #{ moment(created_at).format('dddd, MMMM Do YYYY') }
+        if created_at != updated_at
+            small
+                small  (last updated on #{ moment(updated_at).format('dddd, MMMM Do YYYY') })
+
+    p Update Code: #{ update_code }
 
     include partials/share
 
