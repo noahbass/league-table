@@ -1,0 +1,40 @@
+.btn-twitter {
+    background-color: #00aced;
+    border: 0;
+}
+
+.btn-facebook {
+    background-color: #3b5998;
+    border: 0;
+}
+
+.btn-reddit {
+    background-color: #ff4500;
+    border: 0;
+}
+
+.inline-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
