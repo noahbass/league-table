@@ -2,24 +2,11 @@ extends layout
 
 block content-left
     h1 League Table Generator
-    p An open source, accurate league table generator. Find it on <a href="https://github.com/noahbass/league-table">GitHub</a>.
+    p An open source, fast and accurate league table generator. Find it on <a href="https://github.com/noahbass/league-table">GitHub</a>.
     p Based on <a href="https://github.com/bakert/League-Table-Generator">bakert/League-Table-Generator</a>
 
 block content-right
-    form(action="/", method="POST")
-        .form-group
-            label(for="title") Table Title
-            input.form-control(autofocus, name="title", placeholder="My Table", type="text")
-        .form-group
-            label(for="results") Enter results in format <code>name X - Y name</code> one per line
-            textarea.form-control(rows="12", name="results")
-                include partials/textareaPlacehold
-        .form-group
-            label(for="zones") Promotion and relegation zone spots (optional)
-            input.form-control.input-sm(value="0", type="number", name="zones")
-        .form-group
-            button.btn.btn-primary.ladda-button(data-style="zoom-out", type="submit")
-                span.ladda-label Submit
+    include partials/form
 
     if data
         hr
