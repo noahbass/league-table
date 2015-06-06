@@ -9,7 +9,9 @@ var search    = require('../lib/search.js'),
     Table     = require('../models/Table.js'),
     moment    = require('moment');
 
-
+/*
+ * GET /api/v1
+ */
 exports.index = function(req, res) {
     Table.find({}, null, {sort: {created_at: -1}}, function(error, result) {
         res.status(200).json(result);
@@ -17,6 +19,9 @@ exports.index = function(req, res) {
 };
 
 
+/*
+ * POST /api/v1
+ */
 exports.store = function(req, res, next) {
     var results = req.body.results,
         zones   = req.body.zones;
@@ -99,6 +104,9 @@ exports.store = function(req, res, next) {
 };
 
 
+/*
+ * GET /api/v1/:table_id
+ */
 exports.show = function(req, res) {
     var id = req.params.table_id;
 
