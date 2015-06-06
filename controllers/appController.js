@@ -17,7 +17,12 @@ exports.index = function(req, res) {
     // find all tables, sort them by created_at (newest is first),
     // then return the tables
     Table.find({}, null, {sort: {created_at: -1}}, function(error, result) {
-        res.status(200).json(result);
+        if(error) {
+            res.status(500).json(error);
+        }
+        else {
+            res.status(200).json(result);
+        }
     });
 };
 
@@ -79,9 +84,14 @@ exports.store = function(req, res, next) {
 
     // save the table, then return the table id
     table.save(function(error, result) {
-        res.status(200).json({
-            id: result._id
-        });
+        if(error) {
+            res.status(500).json(error);
+        }
+        else {
+            res.status(200).json({
+                id: result._id
+            });
+        }
     });
 };
 
@@ -95,7 +105,7 @@ exports.show = function(req, res) {
 
     // find the table by id, then return the table
     Table.findById(id, function(error, result) {
-        if(result === null) {
+        if(error) {
             res.status(404).json(error);
         }
         else {
