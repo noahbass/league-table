@@ -1,5 +1,5 @@
 module.exports = function(app) {
-    var appController = require('./../controllers/app.js');
+    var appController = require('./../controllers/appController.js');
 
     app.get('/api/v1/', appController.index);
     app.post('/api/v1/', appController.store);
