@@ -1,0 +1,12 @@
+{
+  "name": "league-table",
+  "version": "0.0.0",
+  "homepage": "https://github.com/noahbass/league-table",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular-bootstrap": "~0.13.0",
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0"
+  }
+}

@@ -1,4 +1,6 @@
 .env
+bower_components
+dist
 
 ###Node###
 
