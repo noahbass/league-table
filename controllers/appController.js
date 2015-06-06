@@ -25,40 +25,11 @@ exports.index = function(req, res) {
 exports.store = function(req, res, next) {
     var results = req.body.results,
         zones   = req.body.zones;
-    //results = results.split('\n');
-    var regex = /^(.*?) (\d+) - (\d+) (.*?)$/;
 
     var title = req.body.title,
         data  = [{ title: title, input: results, table: [] }],
         clubs = [],
         table = data[0].table;
-
-    // do matches
-    /*results.forEach(function(result) {
-        var match = regex.exec(result);
-
-        // match
-        // [1] => Team 1
-        // [2] => Team 1 Score
-        // [3] => Team 2 Score
-        // [4] => Team 2
-
-        // valid entry
-        if(match) {
-            if(clubs.indexOf(match[1]) < 0) {
-                teamPush(match[1], clubs, table);
-            }
-            if(clubs.indexOf(match[4]) < 0) {
-                teamPush(match[4], clubs, table);
-            }
-
-            addResult(table, match[1], match[2], match[3]);
-            addResult(table, match[4], match[3], match[2]);
-        }
-
-        // sort the table after adding new data
-        table.sort(sortTable());
-    });*/
 
     results.forEach(function(result) {
         if(clubs.indexOf(result.name1) < 0) {
