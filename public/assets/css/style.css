@@ -1,3 +1,7 @@
+.container {
+    margin-top: 25px;
+}
+
 .btn-twitter {
     background-color: #00aced;
     border: 0;
@@ -38,3 +42,10 @@
     cursor: inherit;
     display: block;
 }
+
+.btn-absolute {
+    position: absolute;
+    border: 0;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

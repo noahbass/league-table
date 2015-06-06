@@ -1,0 +1,68 @@
+<div class="col-md-4 col-sm-12">
+    <p><a href="/">Create a new table &#8594;</a></p>
+
+    <h1>Table: {{ data.data[0].title }}</h1>
+
+    <p class="lead">
+        {{ data.created_at | date: 'EEEE, MMMM d, yyyy' }}
+
+        <small ng-show="data.created_at != data.updated_at">
+            <small>(last updated {{ data.updated_at | date: 'EEEE, MMMM d, yyyy' }})</small>
+        </small>
+    </p>
+
+    <div ng-include src="'/pages/includes/share.html'"></div>
+</div>
+
+<div class="col-md-8 col-sm-12">
+
+    <div role="tabpanel">
+        <tabset>
+            <tab heading="Table">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th title="Position">#</th>
+                                <th title="Team">Team</th>
+                                <th title="Games Played">GP</th>
+                                <th title="Wins">W</th>
+                                <th title="Draws">D</th>
+                                <th title="Losses">L</th>
+                                <th title="Goals For">GF</th>
+                                <th title="Goals Against">GA</th>
+                                <th title="Goal Difference">GD</th>
+                                <th title="Points">PTS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-class="{promotion: 'success', relegation: 'danger'}[item.zone]" ng-repeat="item in data.data[0].table">
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.played }}</td>
+                                <td>{{ item.wins }}</td>
+                                <td>{{ item.draws }}</td>
+                                <td>{{ item.losses }}</td>
+                                <td>{{ item.for }}</td>
+                                <td>{{ item.against }}</td>
+                                <td ng-if="item.diff > 0">+{{ item.diff }}</td>
+                                <td ng-if="item.diff <= 0">{{ item.diff }}</td>
+                                <td>{{ item.points }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </tab>
+
+            <tab heading="Input">
+                <ul class="list-unstyled">
+                    <li ng-repeat="item in data.data[0].input">
+                        {{ item.name1 }} {{ item.score1 }} - {{ item.score2 }} {{ item.name2 }}
+                    </li>
+                </ul>
+            </tab>
+        </tabset>
+    </div>
+
+</div>

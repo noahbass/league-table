@@ -1,0 +1,51 @@
+<form name="form" ng-submit="submit(form.$valid)" role="form" novalidate>
+    <div class="form-group">
+        <label for="title">Table Title</label>
+        <input ng-model="$parent.title" type="text" class="form-control" placeholder="My Table" required autofocus>
+    </div>
+
+    <div class="form-group">
+        <label for="zones">Promotion and relegation zone spots (optional)</label>
+        <input ng-model="$parent.zones" type="number" class="form-control" required>
+    </div>
+
+    <div role="tabpanel">
+        <label>Table Data</label>
+
+        <div class="form-group row">
+            <div class="col-sm-4 text-right"><strong>Name</strong></div>
+            <div class="col-sm-2 text-right"><strong>Score</strong></div>
+            <div class="col-sm-2"><strong>Score</strong></div>
+            <div class="col-sm-4"><strong>Name</strong></div>
+        </div>
+
+        <div class="form-group row" ng-repeat="result in results">
+            <div class="col-sm-4">
+                <input ng-model="result.name1" class="form-control input-sm text-right" type="text" placeholder="Name" required>
+            </div>
+            <div class="col-sm-2">
+                <input ng-model="result.score1" class="form-control input-sm text-right" type="number" placeholder="Score" value="0" required>
+            </div>
+            <div class="col-sm-2">
+                <input ng-model="result.score2" class="form-control input-sm" type="number" placeholder="Score" value="0" required>
+            </div>
+            <div class="col-sm-4">
+                <input ng-model="result.name2" class="form-control input-sm" type="text" placeholder="Name" required>
+            </div>
+
+            <div ng-show="$index != 0">
+                <button class="btn btn-default btn-absolute btn-sm" ng-click="removeResult($index)">&times;</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p class="text-right"><button class="btn btn-primary btn-sm" ng-focus="addResult()" ng-click="addResult()">Add</button></p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-success ladda-button" data-syle="zoom-out" type="submit" ng-disabled="form.$invalid">
+            <span class="ladda-label">Create Table</span>
+        </button>
+    </div>
+</form>
