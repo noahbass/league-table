@@ -106,7 +106,10 @@ exports.show = function(req, res) {
     // find the table by id, then return the table
     Table.findById(id, function(error, result) {
         if(error) {
-            res.status(404).json(error);
+            res.status(500).json(error);
+        }
+        else if(result == null) {
+            res.status(404).json(result);
         }
         else {
             result.update_code = null;
