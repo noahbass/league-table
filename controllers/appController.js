@@ -1,4 +1,4 @@
-/*
+/**
  * appController
  */
 
@@ -10,7 +10,7 @@ var search    = require('../lib/search.js'),
     moment    = require('moment');
 
 
-/*
+/**
  * GET /api/v1
  */
 exports.index = function(req, res) {
@@ -26,7 +26,7 @@ exports.index = function(req, res) {
 };
 
 
-/*
+/**
  * POST /api/v1
  */
 exports.store = function(req, res, next) {
@@ -94,7 +94,7 @@ exports.store = function(req, res, next) {
 };
 
 
-/*
+/**
  * GET /api/v1/:table_id
  */
 exports.show = function(req, res) {

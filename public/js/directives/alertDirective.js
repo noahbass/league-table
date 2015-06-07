@@ -1,4 +1,4 @@
-/*
+/**
  * alertDirective
  */
 app.directive('alert', function(alertService) {

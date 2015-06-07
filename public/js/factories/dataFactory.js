@@ -1,4 +1,4 @@
-/*
+/**
  * dataFactory
  */
 app.factory('dataFactory', ['$http', function($http) {

@@ -1,4 +1,4 @@
-/*
+/**
  * Page Factory
  */
 app.factory('Page', function() {
