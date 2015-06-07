@@ -38,6 +38,9 @@ app.controller('indexController', function($scope, $location, Page, dataFactory)
             });
     };
 
+    // typeahead data
+    $scope.typeaheadNames = ['Germany', 'Portugal', 'Ghana', 'United States'];
+
     // default data
     $scope.results = [
         { name1: 'Germany', score1: 4, score2: 0, name2: 'Portugal' },
