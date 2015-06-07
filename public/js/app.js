@@ -11,24 +11,6 @@ app.config(function($routeProvider, $locationProvider) {
                 }
             }
         })
-        .when('/two', {
-            templateUrl: 'pages/two.html',
-            controller: 'twoController',
-            resolve: {
-                pageTitle: function() {
-                    return {'title': 'Two'}
-                }
-            }
-        })
-        .when('/three', {
-            templateUrl: 'pages/three.html',
-            controller: 'threeController',
-            resolve: {
-                pageTitle: function() {
-                    return {'title': 'Three'}
-                }
-            }
-        })
         .when('/404', {
             templateUrl: 'pages/error.html',
             controller: 'errorController',
