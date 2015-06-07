@@ -20,9 +20,8 @@ exports.index = function(req, res) {
         if(error) {
             res.status(500).json(error);
         }
-        else {
-            res.status(200).json(result);
-        }
+
+        res.status(200).json(result);
     });
 };
 
@@ -87,11 +86,10 @@ exports.store = function(req, res, next) {
         if(error) {
             res.status(500).json(error);
         }
-        else {
-            res.status(200).json({
-                id: result._id
-            });
-        }
+
+        res.status(200).json({
+            id: result._id
+        });
     });
 };
 
@@ -111,9 +109,8 @@ exports.show = function(req, res) {
         else if(result == null) {
             res.status(404).json(result);
         }
-        else {
-            result.update_code = null;
-            res.status(200).json(result);
-        }
+
+        result.update_code = null;
+        res.status(200).json(result);
     });
 };
