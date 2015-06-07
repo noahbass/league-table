@@ -1,4 +1,4 @@
-<form name="form" ng-submit="submit(form.$valid)" role="form" novalidate>
+<form name="form" role="form" novalidate>
     <div class="form-group">
         <label for="title">Table Title</label>
         <input ng-model="$parent.title" type="text" class="form-control" placeholder="My Table" required autofocus>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="form-group">
-        <button class="btn btn-success ladda-button" data-syle="zoom-out" type="submit" ng-disabled="form.$invalid">
+        <button class="btn btn-success ladda-button" data-syle="zoom-out" type="submit" ng-disabled="form.$invalid" ng-click="submit(form.$valid)">
             <span class="ladda-label">Create Table</span>
         </button>
     </div>
