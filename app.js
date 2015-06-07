@@ -1,12 +1,12 @@
 require('dotenv').load();
 
-var express = require('express'),
-    path = require('path'),
-    favicon = require('serve-favicon'),
-    logger = require('morgan'),
+var express      = require('express'),
+    path         = require('path'),
+    favicon      = require('serve-favicon'),
+    logger       = require('morgan'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser'),
-    mongoose = require('mongoose');
+    bodyParser   = require('body-parser'),
+    mongoose     = require('mongoose');
 
 var app = express();
 
@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 require('./routes/app.js')(app);
 
 // redirect any non-hashed urls to hashed urls for angular
-app.use('/*', function(req, res){
+app.use('/*', function(req, res) {
     return res.sendFile(__dirname + '/public/index.html');
 });
 
