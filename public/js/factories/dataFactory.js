@@ -18,7 +18,7 @@ app.factory('dataFactory', ['$http', function($http) {
      * GET /api/v1/:id
      */
     dataFactory.getTable = function(id) {
-        return $http.get(base + '/' + id)
+        return $http.get(base + '/' + id);
     };
 
     /*
