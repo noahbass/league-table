@@ -1,6 +1,8 @@
-## League Table Generator
+## [League Table Generator](http://leaguetable.noahbass.com/)
 
 A Node.js league table generator based on [bakert/League-Table-Generator](https://github.com/bakert/League-Table-Generator).
+
+[Live demo](http://leaguetable.noahbass.com/)
 
 ### Generator
 
